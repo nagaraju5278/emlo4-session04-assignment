@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run --rm -v $(pwd)/src:/app/src -v $(pwd)/data:/app/data -v $(pwd)/logs:/app/logs -v $(pwd)/checkpoints:/app/checkpoints dog_breed_classifier python src/eval.py --ckpt_path /app/checkpoints/checkpoint_model_dg_bread.ckpt

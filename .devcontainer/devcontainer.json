@@ -1,0 +1,35 @@
+{
+    "name": "Dog Breed Classification Project",
+    "dockerFile": "../Dockerfile",
+    "context": "..",
+    "runArgs": [
+        "--gpus", "all"
+    ],
+    "mounts": [
+        "source=${localWorkspaceFolder}/data,target=/app/data,type=bind",
+        "source=${localWorkspaceFolder}/logs,target=/app/logs,type=bind",
+        "source=${localWorkspaceFolder}/checkpoints,target=/app/checkpoints,type=bind",
+        "source=${localWorkspaceFolder}/outputs,target=/app/outputs,type=bind",
+        "source=${localWorkspaceFolder}/samples,target=/app/samples,type=bind"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "visualstudioexptteam.vscodeintellicode"
+    ],
+    "forwardPorts": [],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "remoteUser": "root"
+}
